@@ -14,6 +14,48 @@ shift
 echo "Fixing mount-points for device $DEVICE"
 
 case "$DEVICE" in
+    "skipjack")
+        sed -i \
+            -e 's block/platform/soc/7824900.sdhci/by-name/DDR mmcblk0p2 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/aboot mmcblk0p5 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/abootbak mmcblk0p6 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/boot mmcblk0p33 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/cache mmcblk0p31 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/cmnlib mmcblk0p16 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/cmnlibbak mmcblk0p17 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/config mmcblk0p29 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/devinfo mmcblk0p26 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/fsc mmcblk0p22 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/fsg mmcblk0p15 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/keymaster mmcblk0p18 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/keymasterbak mmcblk0p19 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/keystore mmcblk0p27 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/metadata mmcblk0p36 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/misc mmcblk0p14 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/modem mmcblk0p1 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/modemst1 mmcblk0p12 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/modemst2 mmcblk0p13 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/oem mmcblk0p28 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/pad mmcblk0p11 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/persist mmcblk0p24 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/persistbak mmcblk0p25 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/recovery mmcblk0p32 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/rpm mmcblk0p7 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/rpmbak mmcblk0p8 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/rsv mmcblk0p23 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/sbl1 mmcblk0p3 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/sbl1bak mmcblk0p4 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/sec mmcblk0p20 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/splash mmcblk0p30 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/ssd mmcblk0p21 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/system mmcblk0p34 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/tz mmcblk0p9 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/tzbak mmcblk0p10 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/userdata mmcblk0p37 ' \
+            -e 's block/platform/soc/7824900.sdhci/by-name/vendor mmcblk0p35 ' \
+            "$@"
+        ;;
+
     "kirin"|"mermaid")
         sed -i \
             -e 's block/bootdevice/by-name/LTALabel mmcblk0p7 ' \
